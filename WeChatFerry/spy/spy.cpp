@@ -11,6 +11,7 @@ namespace Spy
 {
 int Init(void *args)
 {
+    util::MsgBox(nullptr, "at init spy", "init spy", MB_ICONMASK);
     auto *pp = static_cast<util::PortPath *>(args);
 
     Log::InitLogger(pp->path);

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
@@ -60,6 +60,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
     <TargetName>$(ProjectName)_debug</TargetName>
+    <PostBuildEventUseInBuild>true</PostBuildEventUseInBuild>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Dev|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -100,6 +101,7 @@
       <PrecompiledHeaderOutputFile />
       <DisableSpecificWarnings>4251;4731;4819</DisableSpecificWarnings>
       <AdditionalOptions>/EHa /utf-8 %(AdditionalOptions)</AdditionalOptions>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -112,27 +114,13 @@
       <AdditionalDependencies>iphlpapi.lib;wsock32.lib;ws2_32.lib;crypt32.lib;Codec.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
-    <PreBuildEvent>
-      <Command>call "$(SolutionDir)license_check.bat"
-if errorlevel 1 exit 1
-cd $(SolutionDir)rpc\proto
-$(SolutionDir)rpc\tool\protoc --nanopb_out=. wcf.proto</Command>
-    </PreBuildEvent>
-    <PreBuildEvent>
-      <Message>Generating PB files</Message>
-    </PreBuildEvent>
+      <PreBuildEvent>
+          <Message>Generating PB files</Message>
+          <Command>set "PATH=$(SolutionDir)rpc\tool;%PATH%" &amp;&amp; call "$(SolutionDir)license_check.bat" &amp;&amp; cd "$(SolutionDir)rpc\proto" &amp;&amp; "$(SolutionDir)rpc\tool\protoc.exe" --nanopb_out=. wcf.proto</Command>
+      </PreBuildEvent>
     <PostBuildEvent>
-      <Command>if not exist $(SolutionDir)Out md $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetFileName) $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetName).exp $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetName).lib $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetName).pdb $(SolutionDir)Out
-xcopy /y $(SolutionDir)DISCLAIMER.md $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetFileName) $(SolutionDir)..\clients\python\wcferry
-xcopy /y $(SolutionDir)DISCLAIMER.md $(SolutionDir)..\clients\python\wcferry</Command>
-    </PostBuildEvent>
-    <PostBuildEvent>
-      <Message>Copy spy.dll</Message>
+      <Command>call "$(SolutionDir)postbuild.bat"
+</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Dev|x64'">
@@ -176,14 +164,7 @@ $(SolutionDir)rpc\tool\protoc --nanopb_out=. wcf.proto</Command>
       <Message>Generating PB files</Message>
     </PreBuildEvent>
     <PostBuildEvent>
-      <Command>if not exist $(SolutionDir)Out md $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetFileName) $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetName).exp $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetName).lib $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetName).pdb $(SolutionDir)Out
-xcopy /y $(SolutionDir)DISCLAIMER.md $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetFileName) $(SolutionDir)..\clients\python\wcferry
-xcopy /y $(SolutionDir)DISCLAIMER.md $(SolutionDir)..\clients\python\wcferry</Command>
+      <Command>set "PATH=$(ProjectDir)rpc\tool;%PATH%" &amp;&amp; if not exist "$(SolutionDir)Out" md "$(SolutionDir)Out" &amp;&amp; xcopy /y "$(OutDir)$(TargetFileName)" "$(SolutionDir)Out" &amp;&amp; xcopy /y "$(OutDir)$(TargetName).exp" "$(SolutionDir)Out" &amp;&amp; xcopy /y "$(OutDir)$(TargetName).lib" "$(SolutionDir)Out" &amp;&amp; xcopy /y "$(OutDir)$(TargetName).pdb" "$(SolutionDir)Out" &amp;&amp; xcopy /y "$(SolutionDir)DISCLAIMER.md" "$(SolutionDir)Out" &amp;&amp; xcopy /y "$(OutDir)$(TargetFileName)" "$(SolutionDir)..\clients\python\wcferry" &amp;&amp; xcopy /y "$(SolutionDir)DISCLAIMER.md" "$(SolutionDir)..\clients\python\wcferry"</Command>
     </PostBuildEvent>
     <PostBuildEvent>
       <Message>Copy spy.dll</Message>
@@ -222,22 +203,11 @@ xcopy /y $(SolutionDir)DISCLAIMER.md $(SolutionDir)..\clients\python\wcferry</Co
     </Link>
     <PreBuildEvent>
       <Message>Generating PB files</Message>
-      <Command>call "$(SolutionDir)license_check.bat"
-if errorlevel 1 exit 1
-cd $(SolutionDir)rpc\proto
-$(SolutionDir)rpc\tool\protoc --nanopb_out=. wcf.proto</Command>
+      <Command>set "PATH=$(SolutionDir)rpc\tool;%PATH%" &amp;&amp; call "$(SolutionDir)license_check.bat" &amp;&amp; cd "$(SolutionDir)rpc\proto" &amp;&amp; "$(SolutionDir)rpc\tool\protoc.exe" --nanopb_out=. wcf.proto</Command>
     </PreBuildEvent>
-    <PostBuildEvent>
-      <Message>Copy spy.dll</Message>
-      <Command>if not exist $(SolutionDir)Out md $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetFileName) $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetName).exp $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetName).lib $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetName).pdb $(SolutionDir)Out
-xcopy /y $(SolutionDir)DISCLAIMER.md $(SolutionDir)Out
-xcopy /y $(OutDir)$(TargetFileName) $(SolutionDir)..\clients\python\wcferry
-xcopy /y $(SolutionDir)DISCLAIMER.md $(SolutionDir)..\clients\python\wcferry</Command>
-    </PostBuildEvent>
+      <PostBuildEvent>
+          <Command>call "$(SolutionDir)postbuild.bat"</Command>
+      </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="..\com\log.hpp" />
@@ -285,6 +255,7 @@ xcopy /y $(SolutionDir)DISCLAIMER.md $(SolutionDir)..\clients\python\wcferry</Co
   </ItemGroup>
   <ItemGroup>
     <None Include="..\rpc\proto\wcf.proto" />
+    <None Include="postbuild.bat" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="spy.rc" />

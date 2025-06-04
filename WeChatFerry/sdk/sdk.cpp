@@ -130,7 +130,24 @@ __declspec(dllexport) int WxInitSDK(bool debug, int port)
     util::PortPath pp = { 0 };
     pp.port           = port;
     snprintf(pp.path, MAX_PATH, "%s", fs::current_path().string().c_str());
+    {
+        char msg[512]{};
+        // port → %hu because PortPath::port is uint16_t
+        std::snprintf(
+            msg,
+            sizeof(msg),
+            "当前端口: %hu\n工作目录:\n%s",
+            pp.port,
+            pp.path                     // already NUL-terminated
+        );
 
+        util::MsgBox(
+            /* hWnd   */ nullptr,
+            /* text   */ msg,
+            /* title  */ "调试信息 (Port & Path)",
+            /* flags  */ MB_OK | MB_ICONINFORMATION
+        );
+    }
     status       = -3; // TODO: 统一错误码
     bool success = call_dll_func_ex(wcProcess, spyDllPath, spyBase, "InitSpy", (LPVOID)&pp, sizeof(util::PortPath),
                                     (DWORD *)&status);

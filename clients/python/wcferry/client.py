@@ -18,6 +18,7 @@ import sys
 from queue import Queue
 from threading import Thread
 from time import sleep
+import time
 from typing import Callable, Dict, List, Optional
 
 import pynng
@@ -76,21 +77,28 @@ class Wcf():
         self.LOG = logging.getLogger("WCF")
         self._set_console_utf8()
         self.LOG.info(f"wcferry version: {__version__}")
+        self.LOG.info(f"wcferry version: {__version__}")
+        self.LOG.info(f"wcferry version: {__version__}")
+        self.LOG.info(f"连接 RPC")
         self.port = port
         self.host = host
+        self.LOG.info(f"连接 RPC")
         self.sdk = None
         if host is None:
+            self.LOG.info(f"连接 RPC")
             self._local_mode = True
             self.host = "127.0.0.1"
+            self.LOG.info(f"连接 RPC")
             self._sdk_init(debug, port)
-
+        self.LOG.info(f"连接 RPC")
         self.cmd_url = f"tcp://{self.host}:{self.port}"
-
+        self.LOG.info(f"连接 RPC")
         # 连接 RPC
         self.cmd_socket = pynng.Pair1()  # Client --> Server，发送消息
         self.cmd_socket.send_timeout = 5000  # 发送 5 秒超时
         self.cmd_socket.recv_timeout = 5000  # 接收 5 秒超时
         try:
+            self.LOG.info(f"dail")
             self.cmd_socket.dial(self.cmd_url, block=True)
         except Exception as e:
             self.LOG.error(f"连接失败: {e}")
@@ -125,14 +133,18 @@ class Wcf():
             self.LOG.error(f"修改控制台代码页失败: {e}")
 
     def _sdk_init(self, debug, port):
+        self.LOG.info(f"loading sdk.dll")
         sdk = ctypes.cdll.LoadLibrary(f"{self._wcf_root}/sdk.dll")
+        self.LOG.info(f"finish loaded sdk.dll")
+        self.LOG.info(f"sdk wxInitSDK")
         if sdk.WxInitSDK(debug, port) != 0:
             self.LOG.error("初始化失败！")
             os._exit(-1)
-
+        self.LOG.info(f"初始化成功")
         # 主动卸载
         ctypes.windll.kernel32.FreeLibrary.argtypes = [ctypes.wintypes.HMODULE]
         ctypes.windll.kernel32.FreeLibrary(sdk._handle)
+        self.LOG.info(f"卸载成功")
         del sdk  # 删除 Python 对象、触发垃圾回收
         gc.collect()
 

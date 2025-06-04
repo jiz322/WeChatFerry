@@ -9,4 +9,5 @@
 :: --plugin= on the command line.
 
 set mydir=%~dp0
-python "%mydir%\nanopb_generator.py" --protoc-plugin %*
+"D:\anaconda3\python.exe" "%mydir%\nanopb_generator.py" --protoc-plugin %*
+

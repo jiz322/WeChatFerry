@@ -145,6 +145,9 @@
     <None Include="..\rpc\proto\wcf.proto">
       <Filter>nnrpc</Filter>
     </None>
+    <None Include="postbuild.bat">
+      <Filter>源文件</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="spy.rc">

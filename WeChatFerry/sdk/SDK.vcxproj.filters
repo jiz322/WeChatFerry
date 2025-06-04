@@ -21,9 +21,6 @@
     <ClInclude Include="sdk.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="injector.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="..\com\util.h">
       <Filter>头文件</Filter>
     </ClInclude>
@@ -35,10 +32,10 @@
     <ClCompile Include="sdk.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="injector.cpp">
+    <ClCompile Include="..\com\util.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\com\util.cpp">
+    <ClCompile Include="injector.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>

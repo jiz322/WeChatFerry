@@ -1,0 +1,47 @@
+C:\Program Files\Tencent\WeChat\[3.9.12.51]
+-----------------------------------------
+[2024-12-18 15:41:32] [bfcfbefe5264ef9bb5a1422d161f9bcf] andromeda.dll
+[2024-8-13 11:58:4] [883cbfaec7d042008851dd488697d328] cldnn_ns_16k.bin
+[2024-12-13 18:27:48] [181e7ffb85da080a6788b484ea14ee4a] ConfSdk.dll
+[2024-8-13 11:57:52] [ab54b14548a4cc76dd7c27414d971111] directui license.txt
+[2024-8-13 11:57:52] [9265d88b580e05c2a3dc371770b04512] duilib license.txt
+[2024-12-13 18:27:52] [67e946b0effedc3b3f40792d1ca151bc] ilink2.dll
+[2024-8-13 11:58:4] [e30d5a37f9aa1e7e236e9c4a3ee1c244] libEGL.dll
+[2025-2-13 22:56:26] [4cb8a9186279db891a37e58f6d60a5b1] libFFmpeg.dll
+[2024-8-13 11:58:4] [6af8ac1bdbb74369d322a1d75042803c] libGLESv2.dll
+[2025-2-13 22:56:26] [6dd250be70589558d38a4185f129262a] libwxcodec.dll
+[2024-2-27 18:18:18] [2b768daaef99c2fd02219175c458d7ca] mmcrashpad_client64.dll
+[2024-2-27 18:18:18] [67e7203b3ec026ded8d474d677f7755c] mmcrashpad_handler64.exe
+[2024-8-13 11:58:6] [497e137dc897bba27bc0bed334d689f0] mmmojo.dll
+[2024-8-13 11:58:6] [c8e1f1a6ef7ff6b9194ec1ca6ff5cb16] mmmojo_64.dll
+[2024-12-13 18:27:50] [e975b09c80035e5e5ff50707c3c91c39] owl.dll
+[2024-8-13 11:58:6] [7f4f66db8095927ad0c3450ba3d014da] pagengine.dll
+[2025-3-5 22:30:30] [24fecf3bbb2a4768b23f635d8ec10228] plugin_info.ini
+[2024-8-13 11:57:52] [43d2b1e3ef2e59ed73f0070c0d435632] protobuf-lite LICENSE.txt
+[2025-3-5 22:29:50] [52883fc340cd7ffdc62b1cf27bb95cb3] RadiumWMPF.bin
+[2024-8-13 11:58:6] [55b82f7f3c86d9c0d7cffe30eebb250b] rqt.dat
+[2024-8-13 11:58:6] [c201f00181c775913e8f18ef9c2ae5a3] sae.dat
+[2024-8-13 11:57:52] [fb6c89288fdfdf543b77e2ce6b0a3a8d] SDL License.txt
+[2024-8-13 11:57:52] [37e4b547ec42bcc0503b5d5879a30655] Skia LICENSE.txt
+[2024-8-13 11:57:52] [844c21a30916f9a7c5d3b92403a1830b] SPEEX LICENSE.txt
+[2024-8-13 11:58:6] [646c44b337045d13dcfb63c4f6262dcc] sperqt.dat
+[2024-8-13 11:57:52] [035bec4c32acf5829a31cfcfe73726ad] SQLCipher LICENSE.txt
+[2025-3-5 22:30:0] [0099f116937b51046a7ef3284b9c8c78] ThumbPlayer.bin
+[2024-8-13 11:57:38] [a83eca93a0dde026ee845a76b08faafa] Uninstall.exe
+[2024-12-13 18:27:48] [9085943f86fbf2b8e5d4335efc5d63bb] VoipEngine.dll
+[2025-1-15 10:36:48] [356b92074a87fdf6f4d9af34d09aa1f2] wcprobe.dll
+[2025-3-5 22:50:12] [c3497ddefea66fce8c03eae79d2e9e0a] WeChat.exe
+[2024-8-13 11:58:4] [08e35f062f4ab4583e683360fda618c9] WechatAppLauncher.exe
+[2024-8-13 11:58:4] [5f314cd3b610b74d4c9024f16ff5e50f] WechatCodec.exe
+[2024-8-13 11:58:4] [8ac79925a4cb66d72c0eff86f3666321] WeChatExt.exe
+[2025-3-5 22:30:16] [1453f81f10baba4a5689d1df889623c8] WeChatOCR.bin
+[2025-3-5 22:50:10] [b2ad67d9f361b10fd5dc75fff551978d] WeChatResource.dll
+[2024-8-13 11:58:4] [e6fa458644b0681880e9ebe8dbf39051] WeChatSpt.exe
+[2025-3-5 22:30:8] [945bf6dbd06d98906b316488795f47d7] WeChatUpdate.bin
+[2025-3-5 18:19:4] [0caa71bfd3a1c9a3c8951a89658c9830] WeChatUpdate.exe
+[2025-3-5 22:30:24] [bb893d8386239cda59bb2389f9ab2b5e] WeChatUtility.bin
+[2025-3-5 22:50:8] [8b5c842721390a7081544f0d15d6aeb3] WeChatWin.dll
+[2024-8-13 11:58:4] [793f16e846881db8f58b9d5136419a08] WetypeInstaller.exe
+[2025-3-5 22:50:4] [ae2a6c6af059b4271ed20d6dddcb90b3] WeUIResource.dll
+-----------------------------------------
+Total Files:43
